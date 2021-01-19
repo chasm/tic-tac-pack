@@ -27,7 +27,10 @@ module.exports = {
     /* ... */
   },
   devOptions: {
-    /* ... */
+    // don't open browser
+    open: 'none',
+    // don't clear the output
+    output: 'stream',
   },
   buildOptions: {
     /* ... */

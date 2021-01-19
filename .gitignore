@@ -2,7 +2,9 @@
 build
 web_modules
 node_modules
+dist
 
 .vscode
 .history
 temp
+coverage

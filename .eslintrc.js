@@ -5,19 +5,33 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
+    'prettier',
+    'plugin:prettier/recommended',
+    'plugin:sonarjs/recommended',
+    'prettier/@typescript-eslint',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
+  ignorePatterns: ['.eslintrc.js'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 2021,
     sourceType: 'module',
+    project: 'tsconfig.eslint.json',
   },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  overrides: [
+    {
+      files: ['src/**/*.test.js'],
+      env: { node: true },
+    },
+  ],
+  plugins: ['react', '@typescript-eslint', 'sonarjs', 'prettier'],
+  rules: {
+    'prefer-const': 'error',
+  },
   settings: {
     react: {
       version: 'detect',

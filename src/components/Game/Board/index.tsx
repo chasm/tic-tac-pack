@@ -1,17 +1,24 @@
 import React from 'react'
 
+import type { SquareIndex } from '../index.d'
+import getPlayerFromMove from '../utilities/getPlayerFromMove'
 import Square from './Square'
 
+const moves = [4, 3, 2, 6, 0, 1, 8]
+
+export function getSquare(_: string, square: number): JSX.Element {
+  return (
+    <Square
+      key={`square-${square}`}
+      square={square as SquareIndex}
+      player={getPlayerFromMove(square, moves)}
+    />
+  )
+}
+
 export function getSquares(): JSX.Element[] {
-  return new Array(9)
-    .fill('')
-    .map((_, index) => (
-      <Square
-        key={`square-${index}`}
-        index={index}
-        player={index % 2 === 0 ? 'x' : 'o'}
-      />
-    ))
+  const squares: string[] = ['', '', '', '', '', '', '', '', '']
+  return squares.map(getSquare)
 }
 
 export default function Board(): JSX.Element {

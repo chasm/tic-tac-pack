@@ -1,15 +1,21 @@
 import React from 'react'
 
+import type { Player, SquareIndex } from '../../index.d'
+
 export type SquareProps = {
-  index: number
-  player?: 'x' | 'o'
+  square: SquareIndex
+  player?: Player
 }
 
 export default function Square(props: SquareProps): JSX.Element {
-  const { index, player } = props
+  const { square, player } = props
 
   return (
-    <div data-square={index} className={`square ${player ? player : ''}`}>
+    <div
+      data-square={square}
+      data-testid={`square-${square}`}
+      className={`square ${player ? player : ''}`}
+    >
       {player}
     </div>
   )

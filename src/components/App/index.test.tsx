@@ -9,8 +9,16 @@ describe('<App>', () => {
   it('renders heading', () => {
     const { getByText } = render(<App />)
 
-    const h1 = getByText(/Tic Tac Toe/i)
+    const toe = getByText(/Doh!/i)
 
-    expect(document.body.contains(h1))
+    expect(document.body.contains(toe))
+  })
+
+  it('renders game', () => {
+    const { getByTestId } = render(<App />)
+
+    const game = getByTestId(/game/i)
+
+    expect(document.body.contains(game))
   })
 })

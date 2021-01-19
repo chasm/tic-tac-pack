@@ -1,4 +1,4 @@
-# Tic Tac Toe
+# Tic Tac Doh!
 
 A strange game. The only winning move is not to play.
 

@@ -94,6 +94,19 @@ i {
   font-weight: 400;
 }
 
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  justify-content: flex-start;
+  padding: 0 3ch;
+}
+
+header > h1 {
+  font-size: 3rem;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -344,4 +357,52 @@ i {
   flex-basis: 0;
   flex-grow: 999;
   min-width: calc(50% - var(--s1));
+}
+
+.tic {
+  color: crimson;
+}
+
+.tac {
+  color: green;
+}
+
+.toe {
+  color: blue;
+}
+
+.game {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 5rem);
+}
+
+.board {
+  background-color: gray;
+  display: grid;
+  gap: 1px;
+  grid-template-areas: '0 1 2' ' 3 4 5' '6 7 8';
+  grid-template-columns: 33.333% 33.333% 33.333%;
+  grid-template-rows: 33.333% 33.333% 33.333%;
+  height: min(50vh, 50vw);
+  width: min(50vh, 50vw);
+}
+
+.square {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: min(15vh, 15vw);
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.x {
+  color: crimson;
+}
+
+.o {
+  color: green;
 }

@@ -1,9 +1,13 @@
 import React from 'react'
 
+import Game from '../Game'
+import Header from '../Header'
+
 function App(): JSX.Element {
   return (
-    <main>
-      <h1>Tic Tac Toe</h1>
+    <main className="stack">
+      <Header />
+      <Game />
     </main>
   )
 }

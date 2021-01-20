@@ -3,20 +3,30 @@ import React from 'react'
 import type { Player, SquareIndex } from '../../index.d'
 
 export type SquareProps = {
-  square: SquareIndex
+  onClick: (arg0: SquareIndex) => void
   player?: Player
+  square: SquareIndex
 }
 
 export default function Square(props: SquareProps): JSX.Element {
-  const { square, player } = props
+  const { onClick, player, square } = props
 
-  return (
-    <div
+  const handleClick = () => player || onClick(square)
+
+  return player ? (
+    <span
+      className={`square ${player}`}
       data-square={square}
       data-testid={`square-${square}`}
-      className={`square ${player ? player : ''}`}
     >
       {player}
-    </div>
+    </span>
+  ) : (
+    <button
+      className="square"
+      data-square={square}
+      data-testid={`square-${square}`}
+      onClick={handleClick}
+    />
   )
 }

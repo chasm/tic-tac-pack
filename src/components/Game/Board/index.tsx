@@ -1,30 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import type { SquareIndex } from '../index.d'
-import getPlayerFromMove from '../utilities/getPlayerFromMove'
-import Square from './Square'
+import getSquares from './getSquares'
 
-const moves = [4, 3, 2, 6, 0, 1, 8]
-
-export function getSquare(_: string, square: number): JSX.Element {
-  return (
-    <Square
-      key={`square-${square}`}
-      square={square as SquareIndex}
-      player={getPlayerFromMove(square, moves)}
-    />
-  )
+export type BoardProps = {
+  defaultMoves?: SquareIndex[]
 }
 
-export function getSquares(): JSX.Element[] {
-  const squares: string[] = ['', '', '', '', '', '', '', '', '']
-  return squares.map(getSquare)
-}
+const emptyMoves: SquareIndex[] = []
 
-export default function Board(): JSX.Element {
+export default function Board(props: BoardProps): JSX.Element {
+  const { defaultMoves } = props
+  const [moves, setMoves] = useState(defaultMoves || emptyMoves)
+
+  const handleMove = (square: SquareIndex) => setMoves([...moves, square])
+
   return (
     <section data-testid="board" className="board">
-      {getSquares()}
+      {getSquares(moves, handleMove)}
     </section>
   )
 }

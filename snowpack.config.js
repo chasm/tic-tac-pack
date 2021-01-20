@@ -32,7 +32,5 @@ module.exports = {
     // don't clear the output
     output: 'stream',
   },
-  buildOptions: {
-    /* ... */
-  },
+  buildOptions: {},
 }

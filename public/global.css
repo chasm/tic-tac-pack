@@ -392,11 +392,27 @@ header > h1 {
 .square {
   align-items: center;
   background-color: white;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
   display: flex;
   font-family: Verdana, Arial, sans-serif;
   font-size: min(15vh, 15vw);
   justify-content: center;
+  outline: 0;
   text-transform: uppercase;
+}
+
+.square:focus,
+.square:hover {
+  background-color: whitesmoke;
+}
+
+.square.x:focus,
+.square.x:hover,
+.square.o:focus,
+.square.o:hover {
+  background-color: white;
 }
 
 .x {

@@ -23,4 +23,10 @@ describe('getPlayerFromMove>', () => {
 
     expect(player).to.be.undefined
   })
+
+  it('returns an empty string if no move yet', () => {
+    const player = getPlayerFromMove(5, [])
+
+    expect(player).to.be.undefined
+  })
 })
